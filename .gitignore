@@ -4,21 +4,19 @@
 #####################################################
 
 # DEV ENVIRONMENT #
-
 media_cdn/
 static_cdn/
 createapp.sh
 
+# dotenv
+.env
 
 # Django #
-
-.env
 *.log
 *.pot
 *.pyc
-__pycache__
+__pycache__/
 db.sqlite3
-
 
 # Backup Files #
 *.bak

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_description %}
+    Meta/SEO Description
+{% endblock meta_description %}
+
+{% block title %}
+    Index - {{ block.super }}
+{% endblock title %}
+
+
+{% block content %}
+
+<style type="text/css">
+</style>
+
+{% block page_header_js %}
+{% endblock page_header_js %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        access_control: PageContent
+    </div>
+</div>
+
+{% block page_footer_js %}
+{% endblock page_footer_js %}
+
+{% endblock content %}
