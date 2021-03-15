@@ -1,0 +1,23 @@
+#####################################################
+# PROJECT: HumanResourceData
+# ref: https://git-scm.com/docs/gitignore
+#####################################################
+
+# DEV ENVIRONMENT #
+
+media_cdn/
+static_cdn/
+
+
+# Django #
+
+.env
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+
+
+# Backup Files #
+*.bak
