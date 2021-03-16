@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = "access_control.UserAccount"
 
 # Application definition
 
@@ -42,11 +43,15 @@ PREREQUISITE_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third Party
+    'django.contrib.postgres',
 ]
 
 PROJECT_APPS = [
     'apps.homesite.apps.HomesiteConfig',
     'apps.access_control.apps.AccessControlConfig',
+    'apps.staff.apps.StaffConfig',
 ]
 
 INSTALLED_APPS = PREREQUISITE_APPS + PROJECT_APPS
@@ -85,10 +90,17 @@ WSGI_APPLICATION = 'HumanResourceData.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+DB_NAME = "hrdata"
+DB_USER = "pyweb"
+DB_PASSWORD = "pyw3bpyw3b"
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
