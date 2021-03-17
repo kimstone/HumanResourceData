@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_description %}
+    Meta/SEO Description
+{% endblock meta_description %}
+
+{% block title %}
+    View Profile - {{ block.super }}
+{% endblock title %}
+
+
+{% block content %}
+
+<style type="text/css">
+</style>
+
+{% block page_header_js %}
+{% endblock page_header_js %}
+
+<div class="container-fluid">
+    <div class="d-flex flex-column justify-content-left flex-wrap align-items-start">
+
+        <p><b>UserId:</b> {{ id }}</p>
+        <p><b>Email Address:</b> {{ email }}</p>
+        <p><b>Username:</b> {{ username }}</p>
+        <p><b>First Name:</b> {{ firstname }}</p>
+        <p><b>Last Name:</b> {{ lastname }}</p>
+        <p><b>Birthdate:</b> {{ birthdate }}</p>
+        <p><b>Hire Date:</b> {{ hire_date }}</p>
+        <p><b>Start Date:</b> {{ start_date }}</p>
+        <p><b>End Date:</b> {{ end_date }}</p>
+        <p><b>Dependent:</b> {{ dependent }}</p>
+        <p><b>Department:</b> {{ department }}</p>
+        <p><b>Job:</b> {{ job }}</p>
+
+        <a class="mt-4 btn btn-primary" href="{% url 'apps.access_control:edit' user_id=id%}">Edit My Info</a>
+
+    </div>
+</div>
+
+{% block page_footer_js %}
+{% endblock page_footer_js %}
+
+{% endblock content %}

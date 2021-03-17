@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_description %}
+    Meta/SEO Description
+{% endblock meta_description %}
+
+{% block title %}
+    Edit Staff Profile - {{ block.super }}
+{% endblock title %}
+
+
+{% block content %}
+
+<style type="text/css">
+</style>
+
+{% block page_header_js %}
+{% endblock page_header_js %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="card profile-card">
+            <div class="card-body">
+                <div class="d-flex flex-column justify-content-center p-4">
+                    <form class="form-signin" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input class="d-none" type="file" id="id_profile_image"
+                               name="profile_image_file" onchange="readURL(this)">
+                        <h6 class="mt-4 field-heading">Email</h6>
+                        <input type="email" name="email" id="id_input_email" class="form-control"
+                               placeholder="Email address" required autofocus value={{form.initial.email}}>
+                        <h6 class="mt-4 field-heading">Username</h6>
+                        <input type="text" name="username" id="id_input_username" class="form-control"
+                               placeholder="Username" required
+                               value="{{form.initial.username}}">
+                        <h6 class="mt-4 field-heading">First Name</h6>
+                        <input type="text" name="firstname" id="id_input_firstname" class="form-control"
+                               placeholder="First Name" required
+                               value="{{form.initial.firstname}}">
+                        <h6 class="mt-4 field-heading">Last Name</h6>
+                        <input type="text" name="lastname" id="id_input_lastname" class="form-control"
+                               placeholder="Last Name"
+                               value="{{form.initial.lastname}}">
+                        <h6 class="mt-4 field-heading">Birthdate</h6>
+                        <input type="date" name="birthdate" id="id_input_birthdate" class="form-control"
+                               placeholder=""
+                               value="{{form.initial.birthdate|date:'Y-m-d'}}">
+                        <h6 class="mt-4 field-heading">Hire Date</h6>
+                        <input type="date" name="hiredate" id="id_input_hiredate" class="form-control"
+                               placeholder=""
+                               value="{{form.initial.hiredate|date:'Y-m-d'}}">
+                        <h6 class="mt-4 field-heading">Start Date</h6>
+                        <input type="date" name="startdate" id="id_input_startdate" class="form-control"
+                               placeholder=""
+                               value="{{form.initial.startdate|date:'Y-m-d'}}">
+                        <h6 class="mt-4 field-heading">End Date</h6>
+                        <input type="date" name="enddate" id="id_input_enddate" class="form-control"
+                               placeholder=""
+                               value="{{form.initial.enddate|date:'Y-m-d'}}">
+                        <div class="mt-4 checkbox">
+                            <label>
+                                <input type="checkbox" name="hide_email" id="id_input_hide_email" {% if form.initial.hide_email %} checked {% endif %}>
+                                Hide Email
+                            </label>
+
+                        </div>
+
+                        {% for field in form %}
+                        <p>
+                            {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                        </p>
+                        {% endfor %}
+                        {% if form.non_field_errors %}
+                        <div style="color: red">
+                            <p>{{form.non_field_errors}}</p>
+                        </div>
+
+                        {% endif %}
+
+                        <div class="d-flex flex-column mt-4">
+                            <button class="mt-4 btn btn-primary flex-grow-1" type="submit">Save</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block page_footer_js %}
+{% endblock page_footer_js %}
+
+{% endblock content %}
