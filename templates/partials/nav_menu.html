@@ -18,6 +18,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'apps.homesite:contact' %}">Contact</a>
                 </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'apps.access_control:logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'apps.access_control:login' %}">Login</a>
+                </li>
+                {% endif %}
                 <!--
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdownMenuLink" role="button"
